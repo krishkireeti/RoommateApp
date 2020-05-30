@@ -1,15 +1,10 @@
 <template>
 <div class="search">
-    <h1>Find matching roommate by answering your questions in the form</h1><br><br>
+    <h1>Find matching roommate for unfamiliar city by answering your questions in the form</h1><br><br>
     <div>
      <div class= "form-group">   
     <form @submit.prevent = "submitForm()" id="form">
         <h3>{{message}}</h3><br>
-        <label for = "checking">staying or moving? </label><br>
-        <input type="radio" id="yes" name="staying" value="yes">
-  <label for="staying">New roomate with me where i currently live</label><br>
-  <input type="radio" id="no" name="moving" value="no">
-  <label for="moving">A new place to move and new roommates</label><br><br>
      <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname" placeholder="Enter your firstname" required><br>
   <label for="lname">Last name:</label><br>
@@ -487,10 +482,26 @@
    <option value="Zambia">Zambia</option>
    <option value="Zimbabwe">Zimbabwe</option>
 </select><br><br>
-<label for="city">Enter your city:</label>
+<label for="city">Enter the city where you want to relocate:</label>
   <input type="text" id="city" name="fname" placeholder="Enter your city" required><br><br>
   <label for="lname">Enter your Address:</label><br>
-  <input type="textArea" id="lname" name="lname" placeholder="Enter your Address"><br><br>
+  <input type="textArea" id="lname" name="lname" placeholder="Enter your Address" required><br><br>
+  <label for="lname">How much rent are you willing to pay (Determine your budget range)?</label><br>
+  <input type="number" id="rent" name="rent" placeholder="2000-3000" required><br><br>
+  <label for="lname">With how many members are you willing to stay</label>
+  <select id="bed" required>
+  <option value="Alone">1-bed</option>
+   <option value="2 bed">2-bed</option>
+   <option value="3 bed">3-bed</option>
+   <option value="4 bed">4-bed</option>
+   <option value="5 bed">5-bed</option>
+   <option value="6 bed">6-bed</option>
+   </select><br><br>
+   <label for="room">What kind of room are you expecting (Non A/c or A/c):</label><br>
+   <input type="radio" id="yes" name="A/c" value="yes">
+  <label for="A/c">A/C</label><br>
+  <input type="radio" id="no" name="Non A/c" value="no">
+  <label for="Non A/c">Non A/c</label><br><br>
   <button type = "submit">Submit </button>
         </form>
         </div>
@@ -512,7 +523,7 @@ var checkedYes = document.getElementById('yes').checked;
 var checkedNo = document.getElementById('no').checked;
  
  if(checkedYes == false && checkedNo == false){
- alert('You need to select an option!');
+ alert('You need to select an option A/C or Non A/C!');
  return false;
  }
  else{
